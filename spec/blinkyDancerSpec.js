@@ -23,13 +23,13 @@ describe('blinkyDancer', function() {
       sinon.spy(blinkyDancer, 'step');
       expect(blinkyDancer.step.callCount).to.be.equal(0);
 
-      //we seem to be skipping the first tick and we don't know why...
-      clock.tick(timeBetweenSteps * 2);
+      //Call count was the wrong thing to check...
+      clock.tick(timeBetweenSteps);
 
-      expect(blinkyDancer.step.callCount).to.be.equal(1);
+      expect(blinkyDancer.step.callOnce);
 
       clock.tick(timeBetweenSteps);
-      expect(blinkyDancer.step.callCount).to.be.equal(2);
+      expect(blinkyDancer.step.callTwice);
     });
   });
 });

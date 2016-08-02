@@ -5,6 +5,6 @@ var SpinningDancer = function(top, left, timeBetweenSteps) {
 SpinningDancer.prototype = Object.create(Dancer.prototype);
 SpinningDancer.prototype.constructor = SpinningDancer;
 SpinningDancer.prototype.step = function() {
-  Dancer.prototype.step.call(this);
-  this.$node.toggle();
+  // Dancer.prototype.step.call(this);
+  // this.$node.toggle();
 };
