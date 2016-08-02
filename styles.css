@@ -25,3 +25,43 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.dancer.growing{
+  border:10px solid hsla(231, 100%, 52%, 0.22);
+  border-radius:100%;
+  position:absolute;
+  animation: 20s linear 0s 1 grow;
+}
+
+
+@keyframes grow {
+  
+  99% {
+    border: 2000px solid hsla(231, 100%, 52%, 0.05);
+  }
+
+  to {
+    display: none;
+  }
+
+}
+
+.dancer.growing{
+  border:10px solid green;
+  border-radius:100%;
+  position:absolute;
+  animation: 5s linear 0s 1 grow;
+}
+
+
+@keyframes grow {
+  
+  99% {
+    border: 2000px solid hsla(231, 100%, 52%, 0.22);
+  }
+
+  to {
+    display: none;
+  }
+
+}
