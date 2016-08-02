@@ -45,7 +45,7 @@ body, a:link, a:visited, a:active{
   width: 100px;
   border-radius: 2000px;
   position: absolute;
-  animation: 10s linear 0s infinite grow;
+  animation: 5s linear 0s infinite grow;
 }
 @keyframes grow {
   
