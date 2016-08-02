@@ -3,7 +3,7 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-color: #BEB9B5;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -17,24 +17,35 @@ body, a:link, a:visited, a:active{
 .topbar{
   height:32px;
   background-color: #555;
+  z-index: 10;
 }
 .title{
   background-color: #777;
 }
-.dancer.blinky{
-  border:10px solid red;
-  border-radius:10px;
-  position:absolute;
+
+.dancer {
+  z-index: -10;
 }
+
+.dancer.blinky{
+  position:absolute;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid hsla(206,42%,35%,0.65);
+  background-image: url('images/cubes.png')
+}
+
 
 .dancer.growing{
   border: none;
-  background-color: hsla(231, 100%, 52%, 0.22);
+  background-color: hsla(353,83%,70%,0.65);
   height: 100px;
   width: 100px;
   border-radius: 2000px;
   position: absolute;
-  animation: 5s linear 0s infinite grow;
+  animation: 10s linear 0s infinite grow;
 }
 @keyframes grow {
   
@@ -48,11 +59,11 @@ body, a:link, a:visited, a:active{
 }
 
 .dancer.spinning{
-  border: 50px solid hsla(164, 100%, 50%, 0.57);
+  border: 75px solid hsla(271,15%,43%,0.65);
   border-radius: 5%;
   position: absolute;
   animation: 5s linear 0s infinite spin;
-
+  background-image: url('images/superthumb.png')
 }
 
 @keyframes spin {
@@ -60,3 +71,4 @@ body, a:link, a:visited, a:active{
     transform: rotate(0.5turn);
   }
 }
+
