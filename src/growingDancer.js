@@ -38,6 +38,13 @@ GrowingDancer.prototype.pushOthers = function() {
   var xposition = Math.min($('body').width() + 200, xsum * 0.1);
   var yposition = Math.min($('body').height() + 200, ysum * 0.1);
 
+  if (xposition < 0) {
+    xposition = 0;
+  }
+  if (yposition < 0 ) {
+    yposition = 0;
+  }
+
   this.$node.animate({
     top: xposition,
     left: yposition

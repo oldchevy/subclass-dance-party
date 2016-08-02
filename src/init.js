@@ -15,8 +15,8 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
@@ -40,4 +40,28 @@ $(document).ready(function() {
     var dancerBehaviorFunction = window.behaviors[dancerBehavior](window.dancers);
 
   });
+
+
+  // $('body').on('click', '.dancer.canadian', function() {
+  //   var clicks = true;
+  //   var $dancer = $(this);
+  //   console.log($(this));
+  //   if (clicks) {
+  //     $('body').on('mousemove', function(event) {
+  //       // this.setPosition(event.pageY, event.pageX);
+  //       //console.log($(this));
+  //       $dancer.animate({
+  //         top: event.pageY - 136,
+  //         left: event.pageX - 75
+  //       }, 10);
+  //     });
+  //     clicks = false;
+  //   } else {
+  //     //console.log('TURN OFF');
+  //     $('body').off('mousemove');
+  //     clicks = true;
+  //   }
+
+  // });
+
 });
