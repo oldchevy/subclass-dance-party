@@ -82,11 +82,50 @@ body, a:link, a:visited, a:active{
 }
 
 @keyframes torso-fart {
-  50% {
-    transform: rotate(30deg);
+  25% {
+    transform: rotate(7.5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
   }
   100%{
     transform: rotate(0deg);
+  }
+}
+
+@keyframes head-bob {
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: rotate(-30deg)
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes leg-kick {
+  25% {
+   transform: rotate(80deg);
+  }
+  50% {
+    transform: translate(-15%, -15%) rotate(110deg) ;
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes leftArm-shrug {
+  30% {
+    transform: translate(-5%, -10%) rotate(5deg) ;
+  }
+}
+
+@keyframes rightArm-shrug {
+  30% {
+    transform: translate(5%, -10%) rotate(-5deg) ;
   }
 }
 
@@ -98,7 +137,7 @@ body, a:link, a:visited, a:active{
 }
 
 .upper-half{
-  animation: 1s linear 0s infinite torso-fart;
+  animation: 1s cubic-bezier(0.51, 1.88, 0.57, 0.93) 0s infinite torso-fart;
 }
 
 .head{
@@ -132,7 +171,8 @@ body, a:link, a:visited, a:active{
   width: 70px;
   background: pink;
   border-radius: 500px 500px 0 0;
-    border: 1px solid black;
+  border: 1px solid black;
+  animation: .5s linear 0s infinite head-bob;
 }
 .eye-left,
 .eye-right{
@@ -178,14 +218,20 @@ body, a:link, a:visited, a:active{
   border: solid black 2px;
 }
 .left-arm{
+  z-index: -10;
   position: absolute;
   left:30px;
   top:72px;
+  transform-origin: 0% 0%; 
+  animation: 1s cubic-bezier(0.51, 1.88, 0.57, 0.93) 0s infinite leftArm-shrug;
 }
 .right-arm{
+  z-index:-10;
   position: absolute;
   left:117px;
   top:72px;
+  transform-origin: 0% 0%; 
+  animation: 1s cubic-bezier(0.51, 1.88, 0.57, 0.93) 0s infinite rightArm-shrug;
 }
 .leg{
   z-index: -2;
@@ -198,6 +244,8 @@ body, a:link, a:visited, a:active{
   position: absolute;
   left:52px;
   top:180px;
+  transform-origin: 0% 0%; 
+  animation: 1s cubic-bezier(0.51, 1.88, 0.57, 0.93) 0s infinite leg-kick;
 }
 .right-leg{
   position: absolute;

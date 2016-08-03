@@ -27,13 +27,11 @@ GrowingDancer.prototype.pushOthers = function() {
   var ysum = location.top;
 
   for (var i = 0; i < window.dancers.length; i++) {
-    if (dancers[i].$node !== this.$node) {
-      var nearby = dancers[i].$node.position();
-      var distance = Math.sqrt((location.left - nearby.left) ^ 2 + (location.top - nearby.top) ^ 2); 
-      if (distance < 200) {
-        xsum = xsum + (location.left - nearby.left);
-        ysum = ysum + (location.top - nearby.top);
-      }
+    var nearby = dancers[i].$node.position();
+    var distance = Math.sqrt((location.left - nearby.left) ^ 2 + (location.top - nearby.top) ^ 2); 
+    if (distance < 200) {
+      xsum = xsum + (location.left - nearby.left);
+      ysum = ysum + (location.top - nearby.top);
     }
   }
 
@@ -44,8 +42,11 @@ GrowingDancer.prototype.pushOthers = function() {
     ysum *= -1;
   }
 
-  var xposition = Math.min($('body').width() + 200, xsum);
-  var yposition = Math.min($('body').height() + 200, ysum);
+  var xposition = Math.min($('body').width() - 200, xsum);
+  var yposition = Math.min($('body').height() - 200, ysum);
+
+  xposition = xposition === $('body').width() - 200 ? $('body').width() * Math.random() : xposition;
+  yposition = yposition === $('body').height() - 200 ? $('body').height() * Math.random() : yposition;
 
 
   console.log('location-x:', location.left, 'location-y:', location.top);
