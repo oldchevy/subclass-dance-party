@@ -15,13 +15,13 @@ CanadianDancer.prototype.step = function() {
 CanadianDancer.prototype.mouseListener = function() {
   
   var clicks = true;
-  console.log('The id is:', this.id);
+  // console.log('The id is:', this.id);
 
   $('body').on('click', '.dancer.canadian', function(event) {
     //console.log("jQuery click:", $(this));
     //console.log('Target is:', event.target);
     if (clicks) {
-      $(this).on('mousemove', function(event) {
+      $('body').on('mousemove', function(event) {
         this.setPosition(event.pageY - 136, event.pageX - 75);
       }.bind(this));
       clicks = false;
@@ -30,5 +30,5 @@ CanadianDancer.prototype.mouseListener = function() {
       clicks = true;
     }
 
-  });
+  }.bind(this));
 };

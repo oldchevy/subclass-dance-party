@@ -51,11 +51,18 @@ body, a:link, a:visited, a:active{
 }
 @keyframes grow {
   
+  50% {
+    transform: scale(5);
+  }
+
+  80% {
+    transform: scale(0);
+  }
   100% {
     /*border: 2000px solid hsla(231, 100%, 52%, 0.05);
     top: -1000;
     left: -1000;*/
-    transform: scale(5);
+    transform: scale(1);
   }
 
 }

@@ -2,27 +2,29 @@ var GrowingDancer = function(top, left) {
   Dancer.call(this, top, left, 5000); 
   this.$node.addClass('growing'); 
   //setInterval(this.pushOthers.bind(this), 200);
-  this.pushOthers();
+  //this.pushOthers();
 };
 GrowingDancer.prototype = Object.create(Dancer.prototype);
 GrowingDancer.prototype.constructor = GrowingDancer;
 GrowingDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
   setTimeout(function() {
-    var top = $('body').height() * Math.random();
-    var left = $('body').width() * Math.random();
+    //var top = $('body').height() * Math.random();
+    //var left = $('body').width() * Math.random();
+    //console.log('top', top, 'left', left);
     //this.$node.hide();
-    this.setPosition(top, left);
     this.pushOthers();
+    //this.setPosition(top, left);
   }.bind(this), 5000);
 };
 
 GrowingDancer.prototype.pushOthers = function() {
 
   var location = this.$node.position();
+  //console.log(location);
   var closeNodes = [];
-  var xsum = 0;
-  var ysum = 0;
+  var xsum = location.left;
+  var ysum = location.top;
 
   for (var i = 0; i < window.dancers.length; i++) {
     if (dancers[i].$node !== this.$node) {
@@ -35,19 +37,23 @@ GrowingDancer.prototype.pushOthers = function() {
     }
   }
 
-  var xposition = Math.min($('body').width() + 200, xsum * 0.1);
-  var yposition = Math.min($('body').height() + 200, ysum * 0.1);
+  if (xsum < 0) {
+    xsum *= -1;
+  }
+  if (ysum < 0 ) {
+    ysum *= -1;
+  }
 
-  if (xposition < 0) {
-    xposition = 0;
-  }
-  if (yposition < 0 ) {
-    yposition = 0;
-  }
+  var xposition = Math.min($('body').width() + 200, xsum);
+  var yposition = Math.min($('body').height() + 200, ysum);
+
+
+  console.log('location-x:', location.left, 'location-y:', location.top);
+  console.log('XSum:', xsum, 'Ysum:', ysum, 'XPosit', xposition, 'Ypositon', yposition);
 
   this.$node.animate({
-    top: xposition,
-    left: yposition
+    top: yposition,
+    left: xposition
   }, 5000);
 
 

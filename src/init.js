@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(window).load(function() {
   window.dancers = [];
 
   $('.addDancerButton').on('click', function(event) {
