@@ -129,6 +129,37 @@ body, a:link, a:visited, a:active{
   }
 }
 
+@keyframes fart {
+  0%{
+    transform: rotate(-45deg);
+  }
+  30% {
+    left: -30px;
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    left: -45px;
+    opacity: 0;
+    transform: rotate(-45deg) translateY(-30%);
+  }
+}
+
+.fart{
+  width: 60px;
+  height: 75px;
+  background-image: url('images/fart-flame.png');
+  background-size: 60px 75px;
+  position: absolute;
+  top: 80px;   
+  left: 0; 
+  z-index: -11;
+  opacity: 0;
+  animation: 1s cubic-bezier(0.35, 0.27, 0.07, 0.93) 0s infinite fart;
+}
+
 .dancer.canadian {
   position: absolute;
   height:275px;
