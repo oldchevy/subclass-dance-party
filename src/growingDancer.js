@@ -3,9 +3,12 @@ var GrowingDancer = function(top, left) {
   this.$node.addClass('growing'); 
   //setInterval(this.pushOthers.bind(this), 200);
   //this.pushOthers();
+  this.generateColor();
 };
+
 GrowingDancer.prototype = Object.create(Dancer.prototype);
 GrowingDancer.prototype.constructor = GrowingDancer;
+
 GrowingDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
   setTimeout(function() {
@@ -66,3 +69,16 @@ GrowingDancer.prototype.pushOthers = function() {
     //use setinterval with set position to animate the movement vector
 
 };
+
+
+GrowingDancer.prototype.generateColor = function() {
+  colorArray = [[348, 85, 54],
+                [40, 90, 61],
+                [64, 100, 66],
+                [115, 100, 64],
+                [235, 76, 49]];
+  var randomIndex = Math.floor(Math.random() * colorArray.length);
+  var randCol = colorArray[randomIndex];
+  var colorStr = 'hsla('+randCol[0]+','+randCol[1]+'%,'+randCol[2]+'%,0.65';
+  this.$node.css('background-color', colorStr);
+}
